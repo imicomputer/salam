@@ -1,0 +1,21 @@
+li {
+    border-radius: 4px;
+}
+
+.badge {
+    display: inline-block;
+    font-size: small;
+    color: white;
+    background-color:#405061;
+    height: 1.8em;
+    margin-right: 1em;
+    border-radius: 4px 0 0 4px;
+    text-align: right;
+    width: 3em;
+}
+
+.selected {
+    background-color: black;
+    color: white;
+    border-radius: 4px;
+}

@@ -1,0 +1,34 @@
+<div class="container" *ngIf="isShown">
+    <form #newBuku="ngForm" (ngSubmit)="save(newBuku.value)">
+        <fieldset>
+            <h2>Add Buku</h2>
+            <div class="form-group">
+                <label for="txtISBN" class="form-label me-2">ISBN: </label>
+                <input id="txtISBN" name="isbn" class="form-control" placeholder="ISBN" ngModel>
+            </div>
+            <div class="d-flex justify-content-between align-items-center mb-2">
+                <label for="txtJudul" class="form-label me-2">Judul: </label>
+                <input id="txtJudul" name="judul" class="form-control" placeholder="judul" ngModel>
+            </div>
+            <div class="d-flex justify-content-between align-items-center mb-2">
+                <label for="txtPengarang" class="form-label me-2">Pengarang: </label>
+                <input id="txtPengarang" name="pengarang" class="form-control" placeholder="Pengarang" ngModel>
+            </div>
+            <div class="d-flex justify-content-between align-items-center mb-2">
+                <label for="txtPenerbit" class="form-label me-2">Penerbit: </label>
+                <input id="txtPenerbit" name="penerbit" name="" class="form-control" placeholder="Penerbit" ngModel>
+            </div>
+            <div class="d-flex justify-content-between align-items-center mb-2">
+                <label for="txtTglTerbit" class="form-label me-2">Tanggal Terbit: </label>
+                <input id="txtTglTerbit" name="tglTerbit" class="form-control" type="date" placeholder="Tanggal Terbit" ngModel>
+            </div>
+            <div class="d-flex justify-content-between">
+                <span><button class="btn btn-secondary fw-bold" (click)="goBack()">&lt;</button></span>
+                <div>
+                    <button class="btn mx-1 btn-success" type="submit">Save</button>
+                </div>
+            </div>
+        
+        </fieldset>
+    </form>
+</div>

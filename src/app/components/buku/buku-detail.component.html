@@ -1,0 +1,37 @@
+<div class="container" *ngIf="buku; else bukukosong">
+    <fieldset>
+        <h2>{{buku.judul | uppercase}} Details</h2>
+        <div class="form-group"><span>id: </span>{{buku.id}}</div>
+        <div class="form-group"><span>ISBN: </span>{{buku.isbn}}</div>
+        <div class="d-flex justify-content-between align-items-center mb-2">
+            <label for="txtJudul" class="form-label me-2">Judul: </label>
+            <input id="txtJudul" class="form-control" [(ngModel)]="buku.judul" placeholder="judul">
+        </div>
+        <div class="d-flex justify-content-between align-items-center mb-2">
+            <label for="txtPengarang" class="form-label me-2">Pengarang: </label>
+            <input id="txtPengarang" class="form-control" [(ngModel)]="buku.pengarang" placeholder="Pengarang">
+        </div>
+        <div class="d-flex justify-content-between align-items-center mb-2">
+            <label for="txtPenerbit" class="form-label me-2">Penerbit: </label>
+            <input id="txtPenerbit" class="form-control" [(ngModel)]="buku.penerbit" placeholder="Penerbit">
+        </div>
+        <div class="d-flex justify-content-between align-items-center mb-2">
+            <label for="txtTglTerbit" class="form-label me-2">Tanggal Terbit: </label>
+            <input id="txtTglTerbit" class="form-control" type="date" [(ngModel)]="buku.tglterbit" placeholder="Tanggal Terbit">
+        </div>
+        <div class="d-flex justify-content-between">
+            <span><button class="btn btn-secondary fw-bold" (click)="goBack()">&lt;</button></span>
+            <div>
+                <button class="btn mx-1 btn-success" type="submit" (click)="save()">Save</button>
+                <button class="btn mx-1 btn-danger" (click)="delete(buku.id)">Delete</button>
+            </div>
+        </div>
+    
+    </fieldset>
+</div>
+
+<ng-template #bukukosong>
+<div class="container">
+    <h4>Buku belum dipilih!</h4>
+</div>
+</ng-template>

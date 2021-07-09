@@ -1,0 +1,19 @@
+<div class="container">
+    <h3>Daftar Buku!</h3>
+
+    <div class="d-flex justify-content-between">
+        <ul class="list-group buku w-30">
+            <li class="list-group-item list-group-item-action px-0 py-0 my-1"
+                *ngFor="let iBuku of aBuku;"
+                (click)="onSelectBuku(iBuku)" >
+                <span class="badge">{{iBuku.id}}</span> - <span>{{iBuku.judul|uppercase}}</span> | <span>{{iBuku.pengarang}}</span>
+            </li>
+        </ul>
+
+        <div>
+            <app-buku-detail [buku]="selectedBuku"></app-buku-detail>
+    
+            <app-buku-new></app-buku-new>
+        </div>
+    </div>
+</div>

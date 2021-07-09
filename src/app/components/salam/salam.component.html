@@ -1,0 +1,40 @@
+<div class="container">
+    <h1 class="text-center">{{salam|uppercase}}! Welcome to Angular 7</h1>
+
+    <div class="d-flex justify-content-center">
+        <div class="terminal px-3 pt-5 pb-3" title="Running App">
+            <code>
+                npm install -g @angular/cli<br>
+                ng new salam<br>
+                ng serve --open
+            </code>
+        </div>
+    </div>
+    
+    <div class="text-center">
+        <button class="btn btn-danger my-3"
+            (click)="toggleShowContent(isVisible)">
+            Toggle Content
+        </button>
+    </div>
+    
+    <div class="container" *ngIf="isVisible">
+        <h4>Angular Pipes</h4>
+        <div>{{"CONTOH SEBUAH KALIMAT"|lowercase}} (lowercase)</div>
+        <div>{{currDate|date:'shortTime'}} (date:'shortTime')</div>
+        <div>{{currDate|date:'longTime'}} (date:'longTime')</div>
+        <div>{{currDate|date:'shortDate'}} (date:'shortDate')</div>
+        <div>{{currDate|date:'longDate'}} (date:'longDate')</div>
+        <div>{{currDate|date:'YYYY/MM/dd H:m:s'}} (date:'YYYY/MM/dd H:m:s')</div>
+
+        <h4>Looping terhadap Array</h4>
+        <span>Current Month: {{currMonth}}</span>
+        <ul class="list-group">
+            <li *ngFor = "let month of months; let i = index" class="list-group-item">
+                <span class="badge bg-primary px-2 mx-1">{{i}}</span>
+                <span *ngIf = "i == currMonth; else condition2"><b>{{month}}</b></span>
+                    <ng-template #condition2>{{month}}</ng-template>
+            </li>
+        </ul>
+    </div>
+</div>

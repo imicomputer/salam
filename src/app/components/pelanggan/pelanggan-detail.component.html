@@ -1,0 +1,53 @@
+<div class="container" *ngIf="pelanggan; else kosong">
+    <form #dataPelanggan="ngForm" (ngSubmit)="update(dataPelanggan.value)">
+        <div class="card text-dark">
+            <div class="card-header h4 d-flex justify-content-between">
+                <span>{{pelanggan.email}}</span>
+                <span class="badge bg-primary rounded-pill">{{pelanggan.id}}</span>
+                <input type="hidden" id="numId" name="id" [(ngModel)]="pelanggan.id">
+                <input type="hidden" id="txtEMail" name="email" [(ngModel)]="pelanggan.email">
+            </div>
+            <div class="card-body">
+                <div class="form-group d-flex justify-content-between align-items-center mb-2">
+                    <label for="txtNama" class="form-label me-2"><em>Nama:</em></label>
+                    <input id="txtNama" name="nama" class="form-control" [(ngModel)]="pelanggan.nama" placeholder="Nama Pelanggan">
+                </div>
+                <div class="form-group d-flex justify-content-between align-items-center mb-2">
+                    <label for="txtPelanggan" class="form-label me-2"><em>Kode:</em></label>
+                    <input id="txtKodePel" name="kodepel" class="form-control" [(ngModel)]="pelanggan.kodepel" placeholder="Kode Pelanggan">
+                </div>
+                <div class="form-group d-flex justify-content-between align-items-center mb-2">
+                    <label for="txtPelanggan" class="form-label me-2"><em>Alamat:</em></label>
+                    <input id="txtAlamat" name="alamat" class="form-control" [(ngModel)]="pelanggan.alamat" placeholder="Alamat Pelanggan">
+                </div>
+                <div class="form-group d-flex justify-content-between align-items-center mb-2">
+                    <label for="txtTelepon" class="form-label me-2"><em>Telepon:</em></label>
+                    <input id="txtTelepon" name="telp" class="form-control" [(ngModel)]="pelanggan.telp" placeholder="Telepon Pelanggan">
+                </div>
+                <div class="form-group mb-2">
+                    <label for="txtJK" class="form-label me-2"><em>Jenis Kelamin:</em></label>
+                    <select id="selJK" name="jk" [(ngModel)]="pelanggan.jk">
+                        <option *ngFor="let i of jk" value="{{i.k}}" [attr.selected]="i.k == pelanggan.jk">{{i.v}}</option>
+                    </select>
+                </div>
+            </div>
+            <div class="card-footer d-flex justify-content-between">
+                <button class="btn btn-secondary fw-bold" (click)="goBack()">&lt;</button>
+                <div>
+                    <button class="btn btn-success fw-bold me-2" type="submit">Save</button>
+                    <button class="btn btn-danger fw-bold" >Delete</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+<ng-template #kosong>
+    <div class="container">
+        <div class="card text-dark">
+            <div class="card-header">INFO</div>
+            <div class="card-body">
+                Pelanggan belum dipilih.
+            </div>
+        </div>
+    </div>
+</ng-template>
