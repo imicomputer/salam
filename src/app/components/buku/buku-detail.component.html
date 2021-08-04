@@ -5,19 +5,19 @@
         <div class="form-group"><span>ISBN: </span>{{buku.isbn}}</div>
         <div class="d-flex justify-content-between align-items-center mb-2">
             <label for="txtJudul" class="form-label me-2">Judul: </label>
-            <input id="txtJudul" class="form-control" [(ngModel)]="buku.judul" placeholder="judul">
+            <input id="txtJudul" name="judul" class="form-control" [(ngModel)]="buku.judul" placeholder="judul">
         </div>
         <div class="d-flex justify-content-between align-items-center mb-2">
             <label for="txtPengarang" class="form-label me-2">Pengarang: </label>
-            <input id="txtPengarang" class="form-control" [(ngModel)]="buku.pengarang" placeholder="Pengarang">
+            <input id="txtPengarang" name="pengarang" class="form-control" [(ngModel)]="buku.pengarang" placeholder="Pengarang">
         </div>
         <div class="d-flex justify-content-between align-items-center mb-2">
             <label for="txtPenerbit" class="form-label me-2">Penerbit: </label>
-            <input id="txtPenerbit" class="form-control" [(ngModel)]="buku.penerbit" placeholder="Penerbit">
+            <input id="txtPenerbit" name="penerbit" class="form-control" [(ngModel)]="buku.penerbit" placeholder="Penerbit">
         </div>
         <div class="d-flex justify-content-between align-items-center mb-2">
             <label for="txtTglTerbit" class="form-label me-2">Tanggal Terbit: </label>
-            <input id="txtTglTerbit" class="form-control" type="date" [(ngModel)]="buku.tglterbit" placeholder="Tanggal Terbit">
+            <input id="txtTglTerbit" name="tglterbit" class="form-control" type="date" [(ngModel)]="buku.tglterbit" placeholder="Tanggal Terbit">
         </div>
         <div class="d-flex justify-content-between">
             <span><button class="btn btn-secondary fw-bold" (click)="goBack()">&lt;</button></span>

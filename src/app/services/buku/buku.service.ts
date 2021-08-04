@@ -67,4 +67,12 @@ export class BukuService {
       catchError(this.msgSvc.handleError<Buku>(`deleteBuku id=${bukuId}`))
     );
   }
+
+  addBuku(buku: Buku): Observable<any> {
+    return this.httpClient.post(this.svcUrl, buku, this.httpOptions)
+      .pipe(
+        tap(x => this.log('Success: Add new Buku = ' + buku.judul)),
+        catchError(this.msgSvc.handleError<any>(`Failed: Add new Buku =${buku.judul}`))
+      );
+  }
 }

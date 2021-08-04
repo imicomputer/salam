@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Buku } from 'src/app/models/buku';
+import { BukuService } from 'src/app/services/buku/buku.service';
+import { MessageService } from 'src/app/services/message.service';
 
 @Component({
   selector: 'app-buku-new',
@@ -10,13 +12,17 @@ export class BukuNewComponent implements OnInit {
   buku?: Buku;
   isShown: Boolean = true;
   
-  constructor() { }
+  constructor(
+    private bukuService: BukuService,
+    private msgSvc: MessageService
+  ) { }
 
   ngOnInit(): void {
   }
 
-  save(newBuku: object) {
-    console.log(newBuku);
+  save(newBuku: Buku) {
+    this.msgSvc.add('Adding new buku...');
+    this.bukuService.addBuku(newBuku).subscribe();
   }
 
   goBack(Msg: String="Going back...") {
